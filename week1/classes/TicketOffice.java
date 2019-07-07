@@ -6,6 +6,7 @@ import java.util.List;
 public class TicketOffice {
     private Long amount;
     private List<Ticket> tickets = new ArrayList<>();
+    private boolean contracted = false;
 
     public TicketOffice(Long amount) {
         this.amount = amount;
@@ -32,5 +33,12 @@ public class TicketOffice {
     public Long getTicketPrice() {
         if (tickets.size() == 0) return 0L;
         else return tickets.get(0).getFee();
+    }
+
+    public boolean getContract() {
+        if(contracted)
+            return false;
+        contracted = true;
+        return true;
     }
 }

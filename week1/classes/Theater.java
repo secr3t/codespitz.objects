@@ -1,7 +1,6 @@
 package objects.week1.classes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Theater {
@@ -17,13 +16,16 @@ public class Theater {
     }
 
     public void setTicketOffices(TicketOffice... ticketOffices) {
-        this.ticketOffices.addAll(Arrays.asList(ticketOffices));
+        for (TicketOffice ticketOffice : ticketOffices) {
+            if (ticketOffice.getContract())
+                this.ticketOffices.add(ticketOffice);
+        }
     }
 
-    public void setTicket(TicketOffice ticketOffice, Long num) {
+    public void setTicket(TicketOffice ticketOffice, Long num, Movie movie) {
         if (!ticketOffices.contains(ticketOffice)) return;
         while (num-- > 0) {
-            ticketOffice.addTicket(new Ticket(this));
+            ticketOffice.addTicket(new Ticket(this, movie));
         }
     }
 

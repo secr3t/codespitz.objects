@@ -1,10 +1,7 @@
 package objects.week1;
 
 
-import objects.week1.classes.Audience;
-import objects.week1.classes.Theater;
-import objects.week1.classes.TicketOffice;
-import objects.week1.classes.TicketSeller;
+import objects.week1.classes.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +11,8 @@ public class Main {
         TicketOffice ticketOffice = new TicketOffice(0L);
         TicketSeller seller = new TicketSeller();
         theater.setTicketOffices(ticketOffice);
-        theater.setTicket(ticketOffice, 10L);
+        Movie movie = new Movie("spiderman", 1000L);
+        theater.setTicket(ticketOffice, 10L, movie);
         theater.setInvitation(audience1);
         seller.setTicketOffice(ticketOffice);
         audience1.buyTicket(seller);
